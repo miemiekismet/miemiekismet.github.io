@@ -174,6 +174,10 @@ a:visited { color: #2095CB; }
 /* Post styles */
 /* ----------------------------------------------------------*/
 
+.post {
+  color: #fff;
+}
+
 .post-header { margin: 10px 0 30px; }
 
 .post-header h1 {
