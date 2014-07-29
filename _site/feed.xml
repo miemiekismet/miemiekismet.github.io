@@ -5,9 +5,157 @@
     <description></description>
     <link>http://awu.so/</link>
     <atom:link href="http://awu.so/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 28 Jul 2014 15:28:19 -0700</pubDate>
-    <lastBuildDate>Mon, 28 Jul 2014 15:28:19 -0700</lastBuildDate>
+    <pubDate>Mon, 28 Jul 2014 17:35:45 -0700</pubDate>
+    <lastBuildDate>Mon, 28 Jul 2014 17:35:45 -0700</lastBuildDate>
     <generator>Jekyll v2.1.1</generator>
+    
+      <item>
+        <title>Automatic adjustment on color scheme</title>
+        <description>&lt;p&gt;I implement an interesting tool to calculate the harmony of pictures.&lt;/p&gt;
+
+&lt;p&gt;It is based on the algorithm described in former post&lt;/p&gt;
+
+&lt;p&gt;It can used to compare two similar pictures,&lt;/p&gt;
+
+&lt;p&gt;e.g.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Two color scheme for the webpage you created&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A photo before &amp;amp; after adjustment&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There is little meaning for compare the score for two absolutely different picture.&lt;/p&gt;
+
+&lt;p&gt;Ok, let have a look at the demo evaluation page.&lt;/p&gt;
+
+&lt;p&gt;Lower score indicates better performance.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/res/Image%20Harmony%20Evaluation.html&quot;&gt;Evaluation Page for Picture’s Harmony Score!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The first two pairs of examples is provided by the paper which propose this algorithm, it appears that pictures keep align to the theory do have better(aka lower) score. Pictures with lower scores do look better than the ones with higher scores.&lt;/p&gt;
+
+&lt;p&gt;But&lt;/p&gt;
+
+&lt;p&gt;1.The ones have score 0 doesn’t necessary have a perfect performance because there are still difference for pictures keep align to the hue wheel which can be study for more.&lt;/p&gt;
+
+&lt;p&gt;2.The most harmony ones are not necessary the attractive ones. Some ugly ones might got more attention.&lt;/p&gt;
+
+&lt;p&gt;It remind me of the following joke…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013-10-09.jpg&quot; alt=&quot;Joke&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 09 Oct 2013 00:54:23 -0700</pubDate>
+        <link>http://awu.so/2013/10/09/Evaluation-on-Images/</link>
+        <guid isPermaLink="true">http://awu.so/2013/10/09/Evaluation-on-Images/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Experiments on Color Harmony Evaluation and Adjustment</title>
+        <description>&lt;p&gt;&lt;strong&gt;Part I: Color harmony evaluation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I evaluate two-color harmony with the theory and made a evaluation page.&lt;/p&gt;
+
+&lt;p&gt;The harmony score calculated is adjusted according to such a use case “It looks harmony, impressive and not eyestrain as a background color scheme for ads”.&lt;/p&gt;
+
+&lt;p&gt;Higher score indicates better scheme. Scheme with score lower than -0.5 is strongly not recommended. Scheme with score higher than 0.5 is quite safe and harmony.&lt;/p&gt;
+
+&lt;p&gt;Evaluated colors are selected from some existing web pages.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/res/Color%20Harmony.html&quot;&gt;ColorHarmonyEvaluationPage&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 24 Sep 2013 00:54:23 -0700</pubDate>
+        <link>http://awu.so/2013/09/24/Experiments-on-Color-Harmony-Evaluation-and-Adjustment/</link>
+        <guid isPermaLink="true">http://awu.so/2013/09/24/Experiments-on-Color-Harmony-Evaluation-and-Adjustment/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Automatic adjustment on color scheme</title>
+        <description>&lt;p&gt;Recently I am studying on how to create a color scheme automatically, so I collected some information related to color theory.
+When we create a color scheme, we have full control on colors. How can we make sure the combination of the colors is harmony?
+Let’s start with the basic.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hue&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There are three primary color(red, yellow, blue), and combinations of them, which can be described in a hue wheel:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013-09-15-1.gif&quot; alt=&quot;HueWheel&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Colors on the opposite position =, e.g. red and green, are called complimentary colors. They make strong conflict with each other as we all know, but they are not necessary can not work well with each other, because colors have two other properties：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HSaturation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Saturation describe the strength of a color. Colors with low saturate have low contrast with each other.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013-09-15-2.png&quot; alt=&quot;Saturation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Value&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Value describe the brightness of a color. The difference between so called light blue and dark blue is their value.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013-09-15-3.png&quot; alt=&quot;Value&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we got the color space we called “HSV”. Although color space “RGB” we know it for better, but an rgb value is hard to understood by human.(But a “RGB” space can be easily displayed on a 2-dimension picture, so it’s wildly used on computers)&lt;/p&gt;
+
+&lt;p&gt;So what’s the secret of good looking color schemes?&lt;/p&gt;
+
+&lt;p&gt;Two main rules sounds simple and works well:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The relationship between colors’ hue.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The following is a harmonic templates on the hue wheel. A collection of colors that fall into the gray areas is considered to be harmonic. The templates may be rotated by an arbitrary angle. The harmony score can be calculated by formula (1), which adds up the distance between the hue of each pixel and the hue of the template.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013-09-15-4.png&quot; alt=&quot;HueWheels&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013-09-15-5.png&quot; alt=&quot;Formular&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.The relationship between colors’ saturation and value.&lt;/p&gt;
+
+&lt;p&gt;Generally speaking, colors look good together when their values are varied, but their saturations are similar.
+Let’s get some example and see what happens:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2013-09-15-6.jpg&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The left scheme has the exactly same hues of the right scheme. But the left one has similar value for colors which makes people feel tired to see it. That is to say, they are all bright or all dark forcing your eyes struggle to find the defining line between each hue.&lt;/p&gt;
+
+&lt;p&gt;So if you want a nice color scheme,&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose several dominant colors representing the style you need.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Adjust the hue of the dominant colors to some hue template given above.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Add other colors while keep align to the hue template.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Make the saturation of the colors to be similar and vary the value of the colors.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And see what happens.&lt;/p&gt;
+
+&lt;p&gt;Some example with “before” and “after” will be added soon. :D&lt;/p&gt;
+
+&lt;p&gt;Reference: “Color Harmonization,” by Daniel Cohen-Or et al., ACM Transactions on Graphics (TOG), Volume 25:3, July 2006. Proceedings of ACM SIGGRAPH 2006, pp. 624&lt;/p&gt;
+</description>
+        <pubDate>Sun, 15 Sep 2013 00:54:23 -0700</pubDate>
+        <link>http://awu.so/2013/09/15/Automatic-adjustment-on-color-scheme/</link>
+        <guid isPermaLink="true">http://awu.so/2013/09/15/Automatic-adjustment-on-color-scheme/</guid>
+        
+        
+      </item>
     
       <item>
         <title>First blog on my own place~</title>

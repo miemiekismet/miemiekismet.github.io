@@ -1,11 +1,23 @@
 ---
 layout: page
-title: About
+title: About Kat
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Something About Katrina
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+![Kat](/images/kat1.jpg)
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I am a graduate student in Shanghai Jiao Tong University.
+
+Also a normal girl born in Shanghai.
+
+I love coding as well as math.
+
+Also drawing and billiard.
+
+I focus on latest electronic devices.
+
+Also latest fashion trend.
+
+Thank you for visiting at my website~Pls leave your footprints if you have any idea on it^_^
