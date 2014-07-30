@@ -9,8 +9,10 @@ I found such a problem when I played with cocos2d-js:
 {% highlight javascript %}
 for (var i in goods_today) {
 	var cur_good = goods_today[i];
-	var good_label = cc.LabelTTF.create(goods_name[cur_good] + ":" + prices_today[i], "Arial", 20);
-	var good_item = cc.MenuItemLabel.create(good_label, function() {this.buyIn(cur_good);}, that);
+	var good_label = cc.LabelTTF.create(goods_name[cur_good] + ":"
+		+ prices_today[i], "Arial", 20);
+	var good_item = cc.MenuItemLabel.create(good_label,
+		function() {this.buyIn(cur_good);}, that);
 	market_list.addChild(good_item);
 }
 {% endhighlight %}
@@ -69,8 +71,10 @@ So I need to put these codes into a function to create a scope:
 for (var i in goods_today) {
 	(function(that, good){
 		var cur_good = goods_today[good];
-		var good_label = cc.LabelTTF.create(goods_name[cur_good] + ":" + prices_today[idx], "Arial", 20);
-		var good_item = cc.MenuItemLabel.create(good_label, function() {this.buyIn(cur_good);}, that);
+		var good_label = cc.LabelTTF.create(goods_name[cur_good] + ":"
+			+ prices_today[idx], "Arial", 20);
+		var good_item = cc.MenuItemLabel.create(good_label,
+			function() {this.buyIn(cur_good);}, that);
 		market_list.addChild(good_item);
 	})(this, i)
 }
