@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Automatic adjustment on color scheme"
+title:  "Js Scope and Scope Chain"
 date:   2014-07-30 14:52:23
 ---
 
