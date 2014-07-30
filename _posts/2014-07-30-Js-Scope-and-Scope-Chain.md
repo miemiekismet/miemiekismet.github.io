@@ -43,7 +43,7 @@ equals to
 var i;
 for (i in goods_today)
 
-<strond>2.Scope Chain</strond>
+<strong>2.Scope Chain</strong>
 The following codes explain how functions find variables.
 when b() executes, it follows the sequence of b()->a()->window, b() find name in b(), and output "Scope3"
 when c() executes, it follows the sequence of c()->a()->window, c() can not find name in c(), but find name in a(), and output "Scope2"
