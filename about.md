@@ -6,7 +6,7 @@ permalink: /about/
 
 Something About Katrina
 
-![Kat](/images/kat1.jpg)
+![Kat](/images/kat2.jpg)
 
 I am a graduate student in Shanghai Jiao Tong University.
 
