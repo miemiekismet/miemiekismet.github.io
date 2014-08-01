@@ -58,6 +58,101 @@
   <ul class="posts">
     
       <li>
+        <span class="post-date">Jul 30, 2014</span>
+        <a class="post-link" href="/2014/07/30/Js-Scope-and-Scope-Chain/">Js Scope and Scope Chain</a>
+        <section class="post-body">
+          <p>I found such a problem when I played with cocos2d-js:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">goods_today</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">cur_good</span> <span class="o">=</span> <span class="nx">goods_today</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">good_label</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">LabelTTF</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">goods_name</span><span class="p">[</span><span class="nx">cur_good</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
+		<span class="o">+</span> <span class="nx">prices_today</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">good_item</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">MenuItemLabel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">good_label</span><span class="p">,</span>
+		<span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">buyIn</span><span class="p">(</span><span class="nx">cur_good</span><span class="p">);},</span> <span class="nx">that</span><span class="p">);</span>
+	<span class="nx">market_list</span><span class="p">.</span><span class="nx">addChild</span><span class="p">(</span><span class="nx">good_item</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>It turned out that every MenuItemLabel got the last value of cur_good for its parameter for buyIn.</p>
+
+<p>For example, in “for” loop, cur_good got value 0, 1, 2, 3, but when I click these four MenuItemLabels, they all called buyIn(3).</p>
+
+<p>To explain the problem, there are two principles should be explained first.</p>
+
+<p><strong>1.Scope</strong></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{},</span> <span class="k">if</span><span class="p">(){},</span> <span class="k">for</span><span class="p">(){}</span></code></pre></div>
+<p>does not mean a scope in javascript, only function(){} give us a scope.
+e.g.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;global&quot;</span><span class="p">;</span>  
+<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>  
+    <span class="kd">var</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">;</span>  
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>  
+<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span></code></pre></div>
+
+<p>Both alert will give us “local”, because if(){} does not make var “local” a local variable, so “global” is overwrited.</p>
+
+<p>So
+for (var i in goods_today){}
+equals to
+var i;
+for (i in goods_today)</p>
+
+<p><strong>2.Scope Chain</strong></p>
+
+<p>The following codes explain how functions find variables.
+when b() executes, it follows the sequence of b()-&gt;a()-&gt;window, b() find name in b(), and output “Scope3”
+when c() executes, it follows the sequence of c()-&gt;a()-&gt;window, c() can not find name in c(), but find name in a(), and output “Scope2”</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Scope1&quot;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Scope2&quot;</span><span class="p">;</span>
+	<span class="kd">function</span> <span class="nx">b</span><span class="p">()</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Scope3&quot;</span><span class="p">;</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">c</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="nx">b</span><span class="p">();</span>	<span class="c1">//--&gt;&quot;Scope3&quot;</span>
+	<span class="nx">c</span><span class="p">();</span>	<span class="c1">//--&gt;&quot;Scope2&quot;</span>
+<span class="p">}</span>
+<span class="nx">a</span><span class="p">();</span></code></pre></div>
+
+<p>That explains why I got 4 “buyIn(3)” </p>
+
+<p>So I need to put these codes into a function to create a scope:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">goods_today</span><span class="p">)</span> <span class="p">{</span>
+	<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">that</span><span class="p">,</span> <span class="nx">good</span><span class="p">){</span>
+		<span class="kd">var</span> <span class="nx">cur_good</span> <span class="o">=</span> <span class="nx">goods_today</span><span class="p">[</span><span class="nx">good</span><span class="p">];</span>
+		<span class="kd">var</span> <span class="nx">good_label</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">LabelTTF</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">goods_name</span><span class="p">[</span><span class="nx">cur_good</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
+			<span class="o">+</span> <span class="nx">prices_today</span><span class="p">[</span><span class="nx">idx</span><span class="p">],</span> <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">good_item</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">MenuItemLabel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">good_label</span><span class="p">,</span>
+			<span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">buyIn</span><span class="p">(</span><span class="nx">cur_good</span><span class="p">);},</span> <span class="nx">that</span><span class="p">);</span>
+		<span class="nx">market_list</span><span class="p">.</span><span class="nx">addChild</span><span class="p">(</span><span class="nx">good_item</span><span class="p">);</span>
+	<span class="p">})(</span><span class="k">this</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Now it works well~</p>
+
+        </section>
+      </li>
+    
+      <li>
+        <span class="post-date">Mar 21, 2014</span>
+        <a class="post-link" href="/2014/03/21/Sketchs/">Sketchs</a>
+        <section class="post-body">
+          <p>Recent sketchs
+<img src="/images/2014-03-21-1.jpg" alt="HOBO" />
+<img src="/images/2014-03-21-2.jpg" alt="cat" />
+<img src="/images/2014-03-21-3.jpg" alt="feather" /></p>
+
+        </section>
+      </li>
+    
+      <li>
         <span class="post-date">Oct 9, 2013</span>
         <a class="post-link" href="/2013/10/09/Evaluation-on-Images/">Automatic adjustment on color scheme</a>
         <section class="post-body">
@@ -195,23 +290,6 @@ Let’s get some example and see what happens:</p>
 <p>Some example with “before” and “after” will be added soon. :D</p>
 
 <p>Reference: “Color Harmonization,” by Daniel Cohen-Or et al., ACM Transactions on Graphics (TOG), Volume 25:3, July 2006. Proceedings of ACM SIGGRAPH 2006, pp. 624</p>
-
-        </section>
-      </li>
-    
-      <li>
-        <span class="post-date">Aug 31, 2013</span>
-        <a class="post-link" href="/2013/08/31/First-blog-on-my-own-place~/">First blog on my own place~</a>
-        <section class="post-body">
-          <p>I bought this domain for a whole year…Between miaowu.so and awu.so, I choose this one for building a pet social network or a food searching website. <strong>How brilliant I am!!!</strong></p>
-
-<p>And finally decide to use awu.so to build <strong>my own blog</strong>=v=……….</p>
-
-<p>It is not fun as I thought…But at least I don’t waste it anymore.</p>
-
-<p>I haven’t write some public blogs for 4 years…So it’s kind of a big step for me.</p>
-
-<p>I will write something about my work, my life, my drawings, my questions on this website.</p>
 
         </section>
       </li>

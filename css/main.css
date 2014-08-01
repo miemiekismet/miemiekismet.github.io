@@ -432,3 +432,9 @@ a:visited { color: #2095CB; }
     margin: 0 0 15px; }
 
 }
+
+
+img {
+  max-width: 600px;
+  max-height: 600px;
+}
