@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Sketchs"
+title:  "Reflections on My First Game"
 date:   2014-09-05 16:53:00
 ---
 
