@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Automatic adjustment on color scheme"
+title:  "Evaluation on Images"
 date:   2013-10-09 07:54:23
 ---
 
