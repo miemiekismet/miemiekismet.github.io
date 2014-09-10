@@ -8,3 +8,7 @@ url: "http://awu.so"
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+# Pages
+paginate: 5
+paginate_path: "page:num"

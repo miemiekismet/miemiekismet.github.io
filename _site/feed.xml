@@ -5,9 +5,64 @@
     <description></description>
     <link>http://awu.so/</link>
     <atom:link href="http://awu.so/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Jul 2014 17:32:04 -0700</pubDate>
-    <lastBuildDate>Thu, 31 Jul 2014 17:32:04 -0700</lastBuildDate>
+    <pubDate>Wed, 10 Sep 2014 10:37:06 +0800</pubDate>
+    <lastBuildDate>Wed, 10 Sep 2014 10:37:06 +0800</lastBuildDate>
     <generator>Jekyll v2.1.1</generator>
+    
+      <item>
+        <title>Reflections on My First Game</title>
+        <description>&lt;p&gt;Hmm..Here is the thing…I made a game recently.&lt;/p&gt;
+
+&lt;p&gt;And I put it on &lt;a href=&quot;http://awu.so/Journey/&quot;&gt;http://awu.so/Journey/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The whole process is super exciting for me.&lt;/p&gt;
+
+&lt;p&gt;I enjoyed every second when I play with it.&lt;/p&gt;
+
+&lt;p&gt;But…&lt;/p&gt;
+
+&lt;p&gt;it turns out not as good as I expected.&lt;/p&gt;
+
+&lt;p&gt;So I finally stop refining it and start to reflect on the whole thing.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The basic game flow was completed.&lt;/p&gt;
+
+&lt;p&gt;In the game you travels from town to town, and trade goods in towns’ markets. When travels you will meet monsters, you will fight monsters by play a game similar to puzzle and dragon. And you will get loot after fight.\n&lt;/p&gt;
+
+&lt;p&gt;The first problem is that, there is two game system in the game: the trade system and the fight system.&lt;/p&gt;
+
+&lt;p&gt;The trade system is that goods types and prices varies, so you can speculate on them.&lt;/p&gt;
+
+&lt;p&gt;The fight system is quite tricky game.&lt;/p&gt;
+
+&lt;p&gt;Both these two parts can be a single game. Now they are distracting.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The second problem is, it lacks a story line as well as a growth curve. This problem was on the TO FIX LIST. But I may not fix it since the first problem makes the game’s integrity is not very well.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The third problem is, the trade system calls for little amount of goods to make the trade fluent, but the fight system calls for more to make it exciting.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Making game is quite time-consuming..Source materials take a lot of time to draw or collect. Bugs need a lot of time to be found.
+But most important is thinking thoroughly before you make it.
+Including develop platform, game type, game screen style, story, growth curve to keep player exciting.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;I made a dream this afternoon =w=..it’s kind of a nightmare, but can be a good game.&lt;/p&gt;
+
+&lt;p&gt;In the next step, I will take some time to prepare on the new game.&lt;/p&gt;
+
+&lt;p&gt;BTW, if you see this post and play the game - Journey. Pls kindly leave some comments to me.
+&lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#107;&amp;#097;&amp;#116;&amp;#114;&amp;#105;&amp;#110;&amp;#097;&amp;#120;&amp;#120;&amp;#121;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;My Email&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 06 Sep 2014 00:53:00 +0800</pubDate>
+        <link>http://awu.so/2014/09/06/Reflections-on-My-First-Game/</link>
+        <guid isPermaLink="true">http://awu.so/2014/09/06/Reflections-on-My-First-Game/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Js Scope and Scope Chain</title>
@@ -87,7 +142,7 @@ when c() executes, it follows the sequence of c()-&amp;gt;a()-&amp;gt;window, c(
 
 &lt;p&gt;Now it works well~&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Jul 2014 07:52:23 -0700</pubDate>
+        <pubDate>Wed, 30 Jul 2014 22:52:23 +0800</pubDate>
         <link>http://awu.so/2014/07/30/Js-Scope-and-Scope-Chain/</link>
         <guid isPermaLink="true">http://awu.so/2014/07/30/Js-Scope-and-Scope-Chain/</guid>
         
@@ -96,20 +151,21 @@ when c() executes, it follows the sequence of c()-&amp;gt;a()-&amp;gt;window, c(
     
       <item>
         <title>Sketchs</title>
-        <description>&lt;p&gt;Recent sketchs
-&lt;img src=&quot;/images/2014-03-21-1.jpg&quot; alt=&quot;HOBO&quot; /&gt;
-&lt;img src=&quot;/images/2014-03-21-2.jpg&quot; alt=&quot;cat&quot; /&gt;
+        <description>&lt;p&gt;Recent sketchs&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2014-03-21-1.jpg&quot; alt=&quot;HOBO&quot; /&gt;
+&lt;img src=&quot;/images/2014-03-21-2.JPG&quot; alt=&quot;cat&quot; /&gt;
 &lt;img src=&quot;/images/2014-03-21-3.jpg&quot; alt=&quot;feather&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Fri, 21 Mar 2014 13:00:23 -0700</pubDate>
-        <link>http://awu.so/2014/03/21/Sketchs/</link>
-        <guid isPermaLink="true">http://awu.so/2014/03/21/Sketchs/</guid>
+        <pubDate>Sat, 22 Mar 2014 04:00:23 +0800</pubDate>
+        <link>http://awu.so/2014/03/22/Sketchs/</link>
+        <guid isPermaLink="true">http://awu.so/2014/03/22/Sketchs/</guid>
         
         
       </item>
     
       <item>
-        <title>Automatic adjustment on color scheme</title>
+        <title>Evaluation on Images</title>
         <description>&lt;p&gt;I implement an interesting tool to calculate the harmony of pictures.&lt;/p&gt;
 
 &lt;p&gt;It is based on the algorithm described in former post&lt;/p&gt;
@@ -147,7 +203,7 @@ when c() executes, it follows the sequence of c()-&amp;gt;a()-&amp;gt;window, c(
 
 &lt;p&gt;&lt;img src=&quot;/images/2013-10-09.jpg&quot; alt=&quot;Joke&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 09 Oct 2013 00:54:23 -0700</pubDate>
+        <pubDate>Wed, 09 Oct 2013 15:54:23 +0800</pubDate>
         <link>http://awu.so/2013/10/09/Evaluation-on-Images/</link>
         <guid isPermaLink="true">http://awu.so/2013/10/09/Evaluation-on-Images/</guid>
         
@@ -168,7 +224,7 @@ when c() executes, it follows the sequence of c()-&amp;gt;a()-&amp;gt;window, c(
 
 &lt;p&gt;&lt;a href=&quot;/res/Color%20Harmony.html&quot;&gt;ColorHarmonyEvaluationPage&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 24 Sep 2013 00:54:23 -0700</pubDate>
+        <pubDate>Tue, 24 Sep 2013 15:54:23 +0800</pubDate>
         <link>http://awu.so/2013/09/24/Experiments-on-Color-Harmony-Evaluation-and-Adjustment/</link>
         <guid isPermaLink="true">http://awu.so/2013/09/24/Experiments-on-Color-Harmony-Evaluation-and-Adjustment/</guid>
         
@@ -249,7 +305,7 @@ Let’s get some example and see what happens:&lt;/p&gt;
 
 &lt;p&gt;Reference: “Color Harmonization,” by Daniel Cohen-Or et al., ACM Transactions on Graphics (TOG), Volume 25:3, July 2006. Proceedings of ACM SIGGRAPH 2006, pp. 624&lt;/p&gt;
 </description>
-        <pubDate>Sun, 15 Sep 2013 00:54:23 -0700</pubDate>
+        <pubDate>Sun, 15 Sep 2013 15:54:23 +0800</pubDate>
         <link>http://awu.so/2013/09/15/Automatic-adjustment-on-color-scheme/</link>
         <guid isPermaLink="true">http://awu.so/2013/09/15/Automatic-adjustment-on-color-scheme/</guid>
         
@@ -268,7 +324,7 @@ Let’s get some example and see what happens:&lt;/p&gt;
 
 &lt;p&gt;I will write something about my work, my life, my drawings, my questions on this website.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 31 Aug 2013 08:44:23 -0700</pubDate>
+        <pubDate>Sat, 31 Aug 2013 23:44:23 +0800</pubDate>
         <link>http://awu.so/2013/08/31/First-blog-on-my-own-place~/</link>
         <guid isPermaLink="true">http://awu.so/2013/08/31/First-blog-on-my-own-place~/</guid>
         
