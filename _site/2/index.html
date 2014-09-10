@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kat's Home</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="">
+    <link rel="canonical" href="http://awu.so/2/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/">Kat's Home</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/about/">About Kat</a>
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="home">
+
+  <ul class="posts">
+    
+      <li>
+        <span class="post-date">Sep 15, 2013</span>
+        <a class="post-link" href="/2013/09/15/Automatic-adjustment-on-color-scheme/">Automatic adjustment on color scheme</a>
+        <section class="post-body">
+          <p>Recently I am studying on how to create a color scheme automatically, so I collected some information related to color theory.
+When we create a color scheme, we have full control on colors. How can we make sure the combination of the colors is harmony?
+Let’s start with the basic.</p>
+
+<p><strong>Hue</strong></p>
+
+<p>There are three primary color(red, yellow, blue), and combinations of them, which can be described in a hue wheel:</p>
+
+<p><img src="/images/2013-09-15-1.gif" alt="HueWheel" /></p>
+
+<p>Colors on the opposite position =, e.g. red and green, are called complimentary colors. They make strong conflict with each other as we all know, but they are not necessary can not work well with each other, because colors have two other properties：</p>
+
+<p><strong>HSaturation</strong></p>
+
+<p>Saturation describe the strength of a color. Colors with low saturate have low contrast with each other.</p>
+
+<p><img src="/images/2013-09-15-2.png" alt="Saturation" /></p>
+
+<p><strong>Value</strong></p>
+
+<p>Value describe the brightness of a color. The difference between so called light blue and dark blue is their value.</p>
+
+<p><img src="/images/2013-09-15-3.png" alt="Value" /></p>
+
+<p>Now we got the color space we called “HSV”. Although color space “RGB” we know it for better, but an rgb value is hard to understood by human.(But a “RGB” space can be easily displayed on a 2-dimension picture, so it’s wildly used on computers)</p>
+
+<p>So what’s the secret of good looking color schemes?</p>
+
+<p>Two main rules sounds simple and works well:</p>
+
+<ol>
+  <li>The relationship between colors’ hue.</li>
+</ol>
+
+<p>The following is a harmonic templates on the hue wheel. A collection of colors that fall into the gray areas is considered to be harmonic. The templates may be rotated by an arbitrary angle. The harmony score can be calculated by formula (1), which adds up the distance between the hue of each pixel and the hue of the template.</p>
+
+<p><img src="/images/2013-09-15-4.png" alt="HueWheels" /></p>
+
+<p><img src="/images/2013-09-15-5.png" alt="Formular" /></p>
+
+<p>2.The relationship between colors’ saturation and value.</p>
+
+<p>Generally speaking, colors look good together when their values are varied, but their saturations are similar.
+Let’s get some example and see what happens:</p>
+
+<p><img src="/images/2013-09-15-6.jpg" alt="Example" /></p>
+
+<p>The left scheme has the exactly same hues of the right scheme. But the left one has similar value for colors which makes people feel tired to see it. That is to say, they are all bright or all dark forcing your eyes struggle to find the defining line between each hue.</p>
+
+<p>So if you want a nice color scheme,</p>
+
+<ol>
+  <li>
+    <p>Choose several dominant colors representing the style you need.</p>
+  </li>
+  <li>
+    <p>Adjust the hue of the dominant colors to some hue template given above.</p>
+  </li>
+  <li>
+    <p>Add other colors while keep align to the hue template.</p>
+  </li>
+  <li>
+    <p>Make the saturation of the colors to be similar and vary the value of the colors.</p>
+  </li>
+</ol>
+
+<p>And see what happens.</p>
+
+<p>Some example with “before” and “after” will be added soon. :D</p>
+
+<p>Reference: “Color Harmonization,” by Daniel Cohen-Or et al., ACM Transactions on Graphics (TOG), Volume 25:3, July 2006. Proceedings of ACM SIGGRAPH 2006, pp. 624</p>
+
+        </section>
+      </li>
+    
+      <li>
+        <span class="post-date">Aug 31, 2013</span>
+        <a class="post-link" href="/2013/08/31/First-blog-on-my-own-place~/">First blog on my own place~</a>
+        <section class="post-body">
+          <p>I bought this domain for a whole year…Between miaowu.so and awu.so, I choose this one for building a pet social network or a food searching website. <strong>How brilliant I am!!!</strong></p>
+
+<p>And finally decide to use awu.so to build <strong>my own blog</strong>=v=……….</p>
+
+<p>It is not fun as I thought…But at least I don’t waste it anymore.</p>
+
+<p>I haven’t write some public blogs for 4 years…So it’s kind of a big step for me.</p>
+
+<p>I will write something about my work, my life, my drawings, my questions on this website.</p>
+
+        </section>
+      </li>
+    
+  </ul>
+
+  
+      <a href="/">Last Page</a>
+  
+  
+      
+        <a href="/index.html">1</a>
+      
+  
+      
+        <span class="active">2</span>
+      
+  
+  
+
+  <br /><br /><br />
+  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Kat's Home</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li>Kat's Home</li>
+        <li><a href="mailto:katrinaxxy@gmail.com">katrinaxxy@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        
+        
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+      <p class="text"></p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

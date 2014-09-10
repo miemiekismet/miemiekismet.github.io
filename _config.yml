@@ -11,4 +11,4 @@ permalink: pretty
 
 # Pages
 paginate: 5
-paginate_path: "page:num"
+paginate_path: ":num"
