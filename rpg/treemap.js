@@ -197,14 +197,16 @@ d3.json("map.json", function(root) {
 
       // Fade-in entering text.
       g2.selectAll("text").style("fill-opacity", 0);
+      // Fade-in images.
+      g2.selectAll("image").style("opacity", 0);
 
       // Transition to the new view.
       t1.selectAll("text").call(text).style("fill-opacity", 0);
       t2.selectAll("text").call(text).style("fill-opacity", 1);
       t1.selectAll("rect").call(rect);
       t2.selectAll("rect").call(rect);
-      t1.selectAll("image").call(image);
-      t2.selectAll("image").call(image);
+      t1.selectAll("image").call(image).style("opacity", 0);
+      t2.selectAll("image").call(image).style("opacity", 1);
 
       // Remove the old node when the transition is finished.
       t1.remove().each("end", function() {
