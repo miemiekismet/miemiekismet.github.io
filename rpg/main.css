@@ -61,6 +61,10 @@ rect.parent,
   fill: #555;
 }
 
+.locked {
+  background-image: url("./lock.png");
+}
+
 .item rect.child {
   fill: #FCDCF6;
   background-image: url("./sword.png");
