@@ -95,6 +95,7 @@ d3.json("map.json", function(root) {
   }
 
   function display(d) {
+    var hero_level = GetHeroLevel();
     if (d.parent) {
       grandparent
           .datum(d.parent)
@@ -122,7 +123,9 @@ d3.json("map.json", function(root) {
         .on("click", transition);
 
     g.filter(function(d) { return !d._children && d.type == "MONSTER";})
-        .classed("children", true)
+        .classed("children", true);
+    g.filter(function(d) { return !d._children && d.type == "MONSTER" && d.required_level <= hero_level; })
+        .classed("locked", false)
         .on("click", function(d) {
           Fight(d, transition);
         });
@@ -149,6 +152,33 @@ d3.json("map.json", function(root) {
       .append("title")
         .text(function(d) { return formatNumber(d.value); });
 
+    // Top layer: text, images.
+    g.filter(function(d) {return !d._children && d.type == "ITEM" && d.ITEM_TYPE == "ATK";})
+        .classed("locked", true)
+        .append("image")
+        .attr("xlink:href", "sword.png")
+        .call(image);
+    g.filter(function(d) {return !d._children && d.type == "ITEM" && d.ITEM_TYPE == "DEF";})
+        .classed("locked", true)
+        .append("image")
+        .attr("xlink:href", "shield.png")
+        .call(image);
+    g.filter(function(d) {return !d._children && d.type == "ITEM" && d.ITEM_TYPE == "HP";})
+        .classed("locked", true)
+        .append("image")
+        .attr("xlink:href", "hp.png")
+        .call(image);
+
+    g.filter(function(d) { return !d._children && d.type == "MONSTER" && d.required_level > hero_level; })
+        .classed("locked", true)
+        .append("image")
+        .attr("xlink:href", "locked.png")
+        .call(image);
+    g.filter(function(d) { return !d._children && d.type == "MONSTER" && d.required_level <= hero_level; })
+        .classed("unlocked", true)
+        .append("image")
+        .attr("xlink:href", "unlocked.png")
+        .call(image);
     g.append("text")
         .attr("dy", ".75em")
         .text(function(d) {
@@ -162,13 +192,15 @@ d3.json("map.json", function(root) {
         })
         .call(rect);
 
-    function transition(d) {
+    function transition(d, disable_dur) {
+      // disable_dur got 1 in on click case(extra param for mysterious usage), so we explicitly check === true here.
+      var duration_time = disable_dur === true ? 0 : 750;
       if (transitioning || !d) return;
       transitioning = true;
 
       var g2 = display(d),
-          t1 = g1.transition().duration(750),
-          t2 = g2.transition().duration(750);
+          t1 = g1.transition().duration(duration_time),
+          t2 = g2.transition().duration(duration_time);
 
       // Update the domain only after entering new elements.
       x.domain([d.x, d.x + d.dx]);
@@ -182,12 +214,16 @@ d3.json("map.json", function(root) {
 
       // Fade-in entering text.
       g2.selectAll("text").style("fill-opacity", 0);
+      // Fade-in images.
+      g2.selectAll("image").style("opacity", 0);
 
       // Transition to the new view.
       t1.selectAll("text").call(text).style("fill-opacity", 0);
       t2.selectAll("text").call(text).style("fill-opacity", 1);
       t1.selectAll("rect").call(rect);
       t2.selectAll("rect").call(rect);
+      t1.selectAll("image").call(image).style("opacity", 0);
+      t2.selectAll("image").call(image).style("opacity", 1);
 
       // Remove the old node when the transition is finished.
       t1.remove().each("end", function() {
@@ -200,8 +236,8 @@ d3.json("map.json", function(root) {
   }
 
   function text(text) {
-    text.attr("x", function(d) { return x(d.x) + 6; })
-        .attr("y", function(d) { return y(d.y) + 6; });
+    text.attr("x", function(d) { return x(d.x) + 30; })
+        .attr("y", function(d) { return y(d.y) + 13; });
   }
 
   function rect(rect) {
@@ -209,6 +245,13 @@ d3.json("map.json", function(root) {
         .attr("y", function(d) { return y(d.y); })
         .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
         .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+  }
+
+  function image(image) {
+    image.attr("x", function(d) { return x(d.x) + 6; })
+         .attr("y", function(d) { return y(d.y) + 6; })
+         .attr("width", function(d) { return 20; })
+         .attr("height", function(d) { return 20; });
   }
 
   function name(d) {

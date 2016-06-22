@@ -49,6 +49,10 @@ function SetStaticData(static_data) {
   return d3.select("#static_data").node.static_data = static_data;
 }
 
+function GetHeroLevel() {
+  return d3.select("#hero_status").node.hero_status["LEVEL"];
+}
+
 // Get node.
 function GetHeroBaseNode() {
   return d3.select("#hero_base");
@@ -176,7 +180,7 @@ function Fight(monster, callback) {
       monster.beaten = true;
       // Repaint this map, to get correct color of each monster.
       // TODO: Write a better repaint function, instead of reuse transition.
-      callback(monster.parent);
+      callback(monster.parent, true);
       UpdateMonster(monster_name, monster_max_hp, monster_max_hp);
       StopFighting();
       return;
@@ -260,6 +264,6 @@ function Purchase(item, callback) {
     UpdateItem(item["ITEM_TYPE"], item["ITEM_VALUE"])
     // Repaint this map, to get correct price of each item.
     // TODO: Write a better repaint function, instead of reuse transition.
-    callback(item.parent);
+    callback(item.parent, true);
   }
 }

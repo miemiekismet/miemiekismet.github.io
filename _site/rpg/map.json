@@ -6,42 +6,46 @@
    "children": [
     {
      "name": "草丛",
+     "required_level": 1,
      "children": [
-      {"name": "小拉达", "value": 3, "atk": 1, "type": "MONSTER"},
-      {"name": "小拉达", "value": 5, "atk": 1, "type": "MONSTER"},
-      {"name": "小拉达", "value": 9, "atk": 2, "type": "MONSTER"},
-      {"name": "武器精炼", "value": 9, "type": "ITEM", "ITEM_TYPE": "ATK", "ITEM_VALUE": 2},
-      {"name": "比比鸟", "value": 10, "atk": 2, "type": "MONSTER"}
+      {"name": "小拉达", "value": 3, "atk": 1, "type": "MONSTER", "required_level": 1},
+      {"name": "小拉达", "value": 5, "atk": 1, "type": "MONSTER", "required_level": 1},
+      {"name": "小拉达", "value": 9, "atk": 2, "type": "MONSTER", "required_level": 1},
+      {"name": "", "value": 9, "type": "ITEM", "ITEM_TYPE": "ATK", "ITEM_VALUE": 2},
+      {"name": "比比鸟", "value": 10, "atk": 2, "type": "MONSTER", "required_level": 2}
      ]
     },
     {
      "name": "森林",
+     "required_level": 3,
      "children": [
-      {"name": "铁甲蛹", "value": 20, "atk": 3, "type": "MONSTER"},
-      {"name": "铁甲蛹", "value": 30, "atk": 5, "type": "MONSTER"},
-      {"name": "防具精练", "value": 30, "type": "ITEM", "ITEM_TYPE": "DEF", "ITEM_VALUE": 5},
-      {"name": "巴大蝴", "value": 25, "atk": 10, "type": "MONSTER"},
-      {"name": "绿毛虫", "value": 30, "atk": 8, "type": "MONSTER"}
+      {"name": "铁甲蛹", "value": 20, "atk": 3, "type": "MONSTER", "required_level": 3},
+      {"name": "铁甲蛹", "value": 30, "atk": 5, "type": "MONSTER", "required_level": 3},
+      {"name": "", "value": 30, "type": "ITEM", "ITEM_TYPE": "DEF", "ITEM_VALUE": 5},
+      {"name": "巴大蝴", "value": 25, "atk": 10, "type": "MONSTER", "required_level": 4},
+      {"name": "绿毛虫", "value": 30, "atk": 8, "type": "MONSTER", "required_level": 4}
      ]
     }
    ]
   },
   {
    "name": "比尼市",
+   "required_level": 5,
    "children": [
-    {"name": "小拳石", "value": 20, "atk": 10, "type": "MONSTER"},
-    {"name": "小拳石", "value": 25, "atk": 10, "type": "MONSTER"},
-    {"name": "提升生命值", "value": 50, "type": "ITEM", "ITEM_TYPE": "HP", "ITEM_VALUE": 5},
-    {"name": "独角虫", "value": 25, "atk": 12, "type": "MONSTER"},
-    {"name": "大岩蛇", "value": 50, "atk": 15, "type": "MONSTER"},
+    {"name": "小拳石", "value": 20, "atk": 10, "type": "MONSTER", "required_level": 5},
+    {"name": "小拳石", "value": 25, "atk": 10, "type": "MONSTER", "required_level": 5},
+    {"name": "", "value": 50, "type": "ITEM", "ITEM_TYPE": "HP", "ITEM_VALUE": 5},
+    {"name": "独角虫", "value": 25, "atk": 12, "type": "MONSTER", "required_level": 6},
+    {"name": "大岩蛇", "value": 50, "atk": 15, "type": "MONSTER", "required_level": 6},
     {
      "name": "月见山",
+     "required_level": 7,
      "children": [
-      {"name": "超音蝠", "value": 40, "atk": 15, "type": "MONSTER"},
-      {"name": "小磁怪", "value": 50, "atk": 20, "type": "MONSTER"},
-      {"name": "武器精练", "value": 80, "type": "ITEM", "ITEM_TYPE": "ATK", "ITEM_VALUE": 5},
-      {"name": "皮皮", "value": 40, "atk": 25, "type": "MONSTER"},
-      {"name": "火箭队", "value": 100, "atk": 30, "type": "MONSTER"}
+      {"name": "超音蝠", "value": 40, "atk": 15, "type": "MONSTER", "required_level": 7},
+      {"name": "小磁怪", "value": 50, "atk": 20, "type": "MONSTER", "required_level": 7},
+      {"name": "", "value": 80, "type": "ITEM", "ITEM_TYPE": "ATK", "ITEM_VALUE": 5},
+      {"name": "皮皮", "value": 40, "atk": 25, "type": "MONSTER", "required_level": 8},
+      {"name": "火箭队", "value": 100, "atk": 30, "type": "MONSTER", "required_level": 8}
      ]
     }
    ]

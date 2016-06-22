@@ -61,17 +61,6 @@ rect.parent,
   fill: #555;
 }
 
-.locked {
-  background-image: url("./lock.png");
-}
-
-.item rect.child {
-  fill: #FCDCF6;
-  background-image: url("./sword.png");
-  background-repeat: no-repeat;
-  background-position: 50px 50px;
-}
-
 .item:hover rect.child {
   fill: #F9C0EF;
 }

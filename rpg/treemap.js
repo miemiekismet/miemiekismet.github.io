@@ -152,6 +152,23 @@ d3.json("map.json", function(root) {
       .append("title")
         .text(function(d) { return formatNumber(d.value); });
 
+    // Top layer: text, images.
+    g.filter(function(d) {return !d._children && d.type == "ITEM" && d.ITEM_TYPE == "ATK";})
+        .classed("locked", true)
+        .append("image")
+        .attr("xlink:href", "sword.png")
+        .call(image);
+    g.filter(function(d) {return !d._children && d.type == "ITEM" && d.ITEM_TYPE == "DEF";})
+        .classed("locked", true)
+        .append("image")
+        .attr("xlink:href", "shield.png")
+        .call(image);
+    g.filter(function(d) {return !d._children && d.type == "ITEM" && d.ITEM_TYPE == "HP";})
+        .classed("locked", true)
+        .append("image")
+        .attr("xlink:href", "hp.png")
+        .call(image);
+
     g.filter(function(d) { return !d._children && d.type == "MONSTER" && d.required_level > hero_level; })
         .classed("locked", true)
         .append("image")
