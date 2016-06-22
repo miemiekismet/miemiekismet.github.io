@@ -190,7 +190,7 @@ d3.json("map.json", function(root) {
             return d.name + " +" + d["ITEM_TYPE"] + ": " + d["ITEM_VALUE"] + " PRICE: $" + d.value;
           }
         })
-        .call(rect);
+        .call(text);
 
     function transition(d, disable_dur) {
       // disable_dur got 1 in on click case(extra param for mysterious usage), so we explicitly check === true here.
