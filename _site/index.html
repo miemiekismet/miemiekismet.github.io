@@ -7,7 +7,7 @@
     <title>Kat's Home</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="">
-    <link rel="canonical" href="http://awu.so/">
+    <link rel="canonical" href="http://katrina.im/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -43,8 +43,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -59,237 +57,20 @@
 
   <ul class="posts">
     
-      <li>
-        <span class="post-date">Sep 6, 2014</span>
-        <a class="post-link" href="/2014/09/06/Reflections-on-My-First-Game/">Reflections on My First Game</a>
-        <section class="post-body">
-          <p>Hmm..Here is the thing…I made a game recently.</p>
-
-<p>And I put it on <a href="http://awu.so/Journey/">http://awu.so/Journey/</a>.</p>
-
-<p>The whole process is super exciting for me.</p>
-
-<p>I enjoyed every second when I play with it.</p>
-
-<p>But…</p>
-
-<p>it turns out not as good as I expected.</p>
-
-<p>So I finally stop refining it and start to reflect on the whole thing.
-<br /><br /></p>
-
-<p>The basic game flow was completed.</p>
-
-<p>In the game you travels from town to town, and trade goods in towns’ markets. When travels you will meet monsters, you will fight monsters by play a game similar to puzzle and dragon. And you will get loot after fight.\n</p>
-
-<p>The first problem is that, there is two game system in the game: the trade system and the fight system.</p>
-
-<p>The trade system is that goods types and prices varies, so you can speculate on them.</p>
-
-<p>The fight system is quite tricky game.</p>
-
-<p>Both these two parts can be a single game. Now they are distracting.
-<br /><br /></p>
-
-<p>The second problem is, it lacks a story line as well as a growth curve. This problem was on the TO FIX LIST. But I may not fix it since the first problem makes the game’s integrity is not very well.
-<br /><br /></p>
-
-<p>The third problem is, the trade system calls for little amount of goods to make the trade fluent, but the fight system calls for more to make it exciting.
-<br /><br /></p>
-
-<p>Making game is quite time-consuming..Source materials take a lot of time to draw or collect. Bugs need a lot of time to be found.
-But most important is thinking thoroughly before you make it.
-Including develop platform, game type, game screen style, story, growth curve to keep player exciting.
-<br /><br /></p>
-
-<p>I made a dream this afternoon =w=..it’s kind of a nightmare, but can be a good game.</p>
-
-<p>In the next step, I will take some time to prepare on the new game.</p>
-
-<p>BTW, if you see this post and play the game - Journey. Pls kindly leave some comments to me.
-<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#097;&#116;&#114;&#105;&#110;&#097;&#120;&#120;&#121;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">My Email</a></p>
-
-        </section>
-      </li>
-    
-      <li>
-        <span class="post-date">Jul 30, 2014</span>
-        <a class="post-link" href="/2014/07/30/Js-Scope-and-Scope-Chain/">Js Scope and Scope Chain</a>
-        <section class="post-body">
-          <p>I found such a problem when I played with cocos2d-js:</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">goods_today</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">cur_good</span> <span class="o">=</span> <span class="nx">goods_today</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">good_label</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">LabelTTF</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">goods_name</span><span class="p">[</span><span class="nx">cur_good</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
-		<span class="o">+</span> <span class="nx">prices_today</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-	<span class="kd">var</span> <span class="nx">good_item</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">MenuItemLabel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">good_label</span><span class="p">,</span>
-		<span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">buyIn</span><span class="p">(</span><span class="nx">cur_good</span><span class="p">);},</span> <span class="nx">that</span><span class="p">);</span>
-	<span class="nx">market_list</span><span class="p">.</span><span class="nx">addChild</span><span class="p">(</span><span class="nx">good_item</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
-
-<p>It turned out that every MenuItemLabel got the last value of cur_good for its parameter for buyIn.</p>
-
-<p>For example, in “for” loop, cur_good got value 0, 1, 2, 3, but when I click these four MenuItemLabels, they all called buyIn(3).</p>
-
-<p>To explain the problem, there are two principles should be explained first.</p>
-
-<p><strong>1.Scope</strong></p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{},</span> <span class="k">if</span><span class="p">(){},</span> <span class="k">for</span><span class="p">(){}</span></code></pre></div>
-<p>does not mean a scope in javascript, only function(){} give us a scope.
-e.g.</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;global&quot;</span><span class="p">;</span>  
-<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>  
-    <span class="kd">var</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">;</span>  
-    <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-<span class="p">}</span>  
-<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span></code></pre></div>
-
-<p>Both alert will give us “local”, because if(){} does not make var “local” a local variable, so “global” is overwrited.</p>
-
-<p>So
-for (var i in goods_today){}
-equals to
-var i;
-for (i in goods_today)</p>
-
-<p><strong>2.Scope Chain</strong></p>
-
-<p>The following codes explain how functions find variables.
-when b() executes, it follows the sequence of b()-&gt;a()-&gt;window, b() find name in b(), and output “Scope3”
-when c() executes, it follows the sequence of c()-&gt;a()-&gt;window, c() can not find name in c(), but find name in a(), and output “Scope2”</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Scope1&quot;</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Scope2&quot;</span><span class="p">;</span>
-	<span class="kd">function</span> <span class="nx">b</span><span class="p">()</span> <span class="p">{</span>
-		<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Scope3&quot;</span><span class="p">;</span>
-		<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="kd">function</span> <span class="nx">c</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="nx">b</span><span class="p">();</span>	<span class="c1">//--&gt;&quot;Scope3&quot;</span>
-	<span class="nx">c</span><span class="p">();</span>	<span class="c1">//--&gt;&quot;Scope2&quot;</span>
-<span class="p">}</span>
-<span class="nx">a</span><span class="p">();</span></code></pre></div>
-
-<p>That explains why I got 4 “buyIn(3)” </p>
-
-<p>So I need to put these codes into a function to create a scope:</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">goods_today</span><span class="p">)</span> <span class="p">{</span>
-	<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">that</span><span class="p">,</span> <span class="nx">good</span><span class="p">){</span>
-		<span class="kd">var</span> <span class="nx">cur_good</span> <span class="o">=</span> <span class="nx">goods_today</span><span class="p">[</span><span class="nx">good</span><span class="p">];</span>
-		<span class="kd">var</span> <span class="nx">good_label</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">LabelTTF</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">goods_name</span><span class="p">[</span><span class="nx">cur_good</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
-			<span class="o">+</span> <span class="nx">prices_today</span><span class="p">[</span><span class="nx">idx</span><span class="p">],</span> <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-		<span class="kd">var</span> <span class="nx">good_item</span> <span class="o">=</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">MenuItemLabel</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">good_label</span><span class="p">,</span>
-			<span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">buyIn</span><span class="p">(</span><span class="nx">cur_good</span><span class="p">);},</span> <span class="nx">that</span><span class="p">);</span>
-		<span class="nx">market_list</span><span class="p">.</span><span class="nx">addChild</span><span class="p">(</span><span class="nx">good_item</span><span class="p">);</span>
-	<span class="p">})(</span><span class="k">this</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
-
-<p>Now it works well~</p>
-
-        </section>
-      </li>
-    
-      <li>
-        <span class="post-date">Mar 22, 2014</span>
-        <a class="post-link" href="/2014/03/22/Sketchs/">Sketchs</a>
-        <section class="post-body">
-          <p>Recent sketchs</p>
-
-<p><img src="/images/2014-03-21-1.jpg" alt="HOBO" />
-<img src="/images/2014-03-21-2.JPG" alt="cat" />
-<img src="/images/2014-03-21-3.jpg" alt="feather" /></p>
-
-        </section>
-      </li>
-    
-      <li>
-        <span class="post-date">Oct 9, 2013</span>
-        <a class="post-link" href="/2013/10/09/Evaluation-on-Images/">Evaluation on Images</a>
-        <section class="post-body">
-          <p>I implement an interesting tool to calculate the harmony of pictures.</p>
-
-<p>It is based on the algorithm described in former post</p>
-
-<p>It can used to compare two similar pictures,</p>
-
-<p>e.g.</p>
-
-<ol>
-  <li>
-    <p>Two color scheme for the webpage you created</p>
-  </li>
-  <li>
-    <p>A photo before &amp; after adjustment</p>
-  </li>
-</ol>
-
-<p>There is little meaning for compare the score for two absolutely different picture.</p>
-
-<p>Ok, let have a look at the demo evaluation page.</p>
-
-<p>Lower score indicates better performance.</p>
-
-<p><a href="/res/Image%20Harmony%20Evaluation.html">Evaluation Page for Picture’s Harmony Score!</a></p>
-
-<p>The first two pairs of examples is provided by the paper which propose this algorithm, it appears that pictures keep align to the theory do have better(aka lower) score. Pictures with lower scores do look better than the ones with higher scores.</p>
-
-<p>But</p>
-
-<p>1.The ones have score 0 doesn’t necessary have a perfect performance because there are still difference for pictures keep align to the hue wheel which can be study for more.</p>
-
-<p>2.The most harmony ones are not necessary the attractive ones. Some ugly ones might got more attention.</p>
-
-<p>It remind me of the following joke…</p>
-
-<p><img src="/images/2013-10-09.jpg" alt="Joke" /></p>
-
-        </section>
-      </li>
-    
-      <li>
-        <span class="post-date">Sep 24, 2013</span>
-        <a class="post-link" href="/2013/09/24/Experiments-on-Color-Harmony-Evaluation-and-Adjustment/">Experiments on Color Harmony Evaluation and Adjustment</a>
-        <section class="post-body">
-          <p><strong>Part I: Color harmony evaluation</strong></p>
-
-<p>I evaluate two-color harmony with the theory and made a evaluation page.</p>
-
-<p>The harmony score calculated is adjusted according to such a use case “It looks harmony, impressive and not eyestrain as a background color scheme for ads”.</p>
-
-<p>Higher score indicates better scheme. Scheme with score lower than -0.5 is strongly not recommended. Scheme with score higher than 0.5 is quite safe and harmony.</p>
-
-<p>Evaluated colors are selected from some existing web pages.</p>
-
-<p><a href="/res/Color%20Harmony.html">ColorHarmonyEvaluationPage</a></p>
-
-        </section>
-      </li>
-    
   </ul>
-
-  
-  
-      
-        <span class="active">1</span>
-      
-  
-      
-        <a href="2">2</a>
-      
-  
-  
-    <a href="/2">Next Page</a>
-  
 
   <br /><br /><br />
   <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Banner -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7415013147606466"
+     data-ad-slot="6574292431"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </div>
 
       </div>
