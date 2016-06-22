@@ -1,6 +1,12 @@
 var auto_recovery;
 
 // Initializer. BEGIN
+d3.json("level.json", function(level) {
+  initialize(level);
+  function initialize(level) {
+    SetStaticData(level);
+  }
+});
 d3.json("hero.json", function(hero) {
   initialize(hero);
 
@@ -9,6 +15,7 @@ d3.json("hero.json", function(hero) {
     var hp_text = hero_base.select(".hp_text");
     SetHeroStatus(hero);
     UpdateHp(hero["HP"]);
+    UpdateExp(0);
     var level = d3.select("#hero_level");
     level.html("Level: " + hero["LEVEL"]);
     var money = d3.select("#hero_money");
@@ -20,13 +27,6 @@ d3.json("hero.json", function(hero) {
 
     // Start auto recovery by default.
     StartAutoRecovery();
-  }
-});
-
-d3.json("level.json", function(level) {
-  initialize(level);
-  function initialize(level) {
-    SetStaticData(level);
   }
 });
 
@@ -70,8 +70,8 @@ function UpdateHp(hero_hp) {
   hp_text.html("HP: " + hero_status["HP"] + "/" + hero_status["MAX_HP"] + "   ");
   // Repaint hp bar.
   var total_length = 100;
-  var left_bar = hero_base.select(".left_bar");
-  var right_bar = hero_base.select(".right_bar");
+  var left_bar = hero_base.select(".left_bar.hp");
+  var right_bar = hero_base.select(".right_bar.hp");
   left_bar.style('width', Math.floor(hero_status["HP"] / hero_status["MAX_HP"] * total_length) + 'px');
   right_bar.style('width', (total_length - Math.floor(hero_status["HP"] / hero_status["MAX_HP"] * total_length)) + 'px');
 }
@@ -85,9 +85,9 @@ function UpdateMaxHp(hero_max_hp) {
   var hp_text = hero_base.select(".hp_text");
   hp_text.html("HP: " + hero_status["HP"] + "/" + hero_status["MAX_HP"] + "   ");
   // Repaint hp bar.
-  var total_length = 100;
-  var left_bar = hero_base.select(".left_bar");
-  var right_bar = hero_base.select(".right_bar");
+  var total_length = 120;
+  var left_bar = hero_base.select(".left_bar.hp");
+  var right_bar = hero_base.select(".right_bar.hp");
   left_bar.style('width', Math.floor(hero_status["HP"] / hero_status["MAX_HP"] * total_length) + 'px');
   right_bar.style('width', (total_length - Math.floor(hero_status["HP"] / hero_status["MAX_HP"] * total_length)) + 'px');
 }
@@ -98,8 +98,17 @@ function UpdateExp(exp) {
     hero_status["EXP"] += exp;
     var new_exp = hero_status["EXP"];
     var cur_level = hero_status["LEVEL"];
-
     var static_data = GetStaticData();
+
+    // Draw exp bar.
+    var exp_text = hero_base.select(".exp_text");
+    exp_text.html("EXP: " + hero_status["EXP"] + "/" + static_data[cur_level + 1]["EXP"] + "   ");
+    var total_length = 120;
+    var left_bar = hero_base.select(".left_bar.exp");
+    var right_bar = hero_base.select(".right_bar.exp");
+    left_bar.style('width', Math.floor(hero_status["EXP"] / static_data[cur_level + 1]["EXP"] * total_length) + 'px');
+    right_bar.style('width', (total_length - Math.floor(hero_status["EXP"] / static_data[cur_level + 1]["EXP"] * total_length)) + 'px');
+
     if (static_data[cur_level + 1] && new_exp >= static_data[cur_level + 1]["EXP"]) {
       hero_status["LEVEL"] += 1;
       UpdateAtk(static_data[cur_level]["ATK"]);
@@ -107,6 +116,7 @@ function UpdateExp(exp) {
       hero_status["MAX_HP"] += static_data[cur_level]["HP"];
       hero_status["HP"] = hero_status["MAX_HP"];
       UpdateHp(hero_status["HP"]);
+      UpdateExp(0);
 
       var level = d3.select("#hero_level");
       level.html("Level: " + hero_status["LEVEL"]);

@@ -286,16 +286,32 @@ blockquote q:after {
   z-index: 2;
 }
 
-.left_bar {
-  background-color: red;
+.exp_text {
+  padding-left: 240px;
+  height: 20px;
+  position: absolute;
+  z-index: 2;
+}
+
+.left_bar,.right_bar{
   opacity: 0.6;
   z-index: 1;
 }
 
-.right_bar {
+.left_bar.exp{
+  background-color: blue;
+}
+
+.right_bar.exp{
+  background-color: #bbb;
+}
+
+.left_bar.hp{
+  background-color: red;
+}
+
+.right_bar.hp{
   background-color: grey;
-  opacity: 0.6;
-  z-index: 1;
 }
 
 /* Fighting */
@@ -340,6 +356,7 @@ blockquote q:after {
 
 #hero_atk, #hero_def {
   padding-left: 10px;
+  padding-right: 10px;
   float: left;
 }
 
