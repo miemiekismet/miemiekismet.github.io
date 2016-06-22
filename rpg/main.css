@@ -61,6 +61,10 @@ rect.parent,
   fill: #555;
 }
 
+.item rect.child {
+  fill: #FCDCF6;
+}
+
 .item:hover rect.child {
   fill: #F9C0EF;
 }
