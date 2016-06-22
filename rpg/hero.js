@@ -67,7 +67,7 @@ function UpdateHp(hero_hp) {
   hero_status["HP"] = hero_hp;
   // Update hp text.
   var hp_text = hero_base.select(".hp_text");
-  hp_text.html("HP: " + hero_status["HP"] + "/" + hero_status["MAX_HP"] + "   ");
+  hp_text.html("HP: " + hero_status["HP"] + "/" + hero_status["MAX_HP"]);
   // Repaint hp bar.
   var total_length = 100;
   var left_bar = hero_base.select(".left_bar.hp");
@@ -83,7 +83,7 @@ function UpdateMaxHp(hero_max_hp) {
   hero_status["MAX"] += hero_max_hp;
   // Update hp text.
   var hp_text = hero_base.select(".hp_text");
-  hp_text.html("HP: " + hero_status["HP"] + "/" + hero_status["MAX_HP"] + "   ");
+  hp_text.html("HP: " + hero_status["HP"] + "/" + hero_status["MAX_HP"]);
   // Repaint hp bar.
   var total_length = 120;
   var left_bar = hero_base.select(".left_bar.hp");
@@ -102,7 +102,7 @@ function UpdateExp(exp) {
 
     // Draw exp bar.
     var exp_text = hero_base.select(".exp_text");
-    exp_text.html("EXP: " + hero_status["EXP"] + "/" + static_data[cur_level + 1]["EXP"] + "   ");
+    exp_text.html("EXP: " + hero_status["EXP"] + "/" + static_data[cur_level + 1]["EXP"]);
     var total_length = 120;
     var left_bar = hero_base.select(".left_bar.exp");
     var right_bar = hero_base.select(".right_bar.exp");
